@@ -12,7 +12,7 @@
   <div class="darken">
   </div>
   <div class="_slogan">
-    <p class="title">在 Connext，<br>让更多人<br>听到你的声音。</p>
+    <p class="title">在 Connext，<br>让更多人<br>听见你的声音。</p>
     <p>无论你是青少年项目的参与者、经验丰富的技术人员还是互联网领域关注者，<br>Connext 都可以为你提供分享、展示与交流的机会和舞台。</p>
     <p>我们欢迎热爱互联网的你，<br>以分享者身份参与 7 月的 meetup。</p>
     <p class="btn"><a href="http://form.mikecrm.com/p0Eaex" target="_blank"><i class="fa fa-angle-double-right" aria-hidden="true"></i> 讲者注册</a></p>
@@ -33,7 +33,7 @@
   	position absolute
   	left 0
   	top 0
-  	background rgba(0,0,0,.6)
+  	background rgba(38, 50, 56, 0.65)
   	width 100%
   	height 100%
   ._slogan
