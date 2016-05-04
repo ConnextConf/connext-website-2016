@@ -22,6 +22,7 @@
 @import url(http://fonts.useso.com/css?family=Lato:300,400,700);
 
 body, html
+  -webkit-text-size-adjust none
   background-color #fefefe !important
   font-family Lato, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei","STHeiti","WenQuanYi Micro Hei",Arial, SimSun,sans-serif !important
 .fullscreen-wrapper
