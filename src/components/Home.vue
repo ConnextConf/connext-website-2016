@@ -131,9 +131,9 @@ bg_canvas
         a(href="http://www.corpsx.com/" target="_blank")
           img(src="../marks/corps_x.png")
         span
-          | 稀土
-        a(href="https://xitu.io/" target="_blank")
-          img(src="../marks/xitu.png")
+          | 稀土掘金
+        a(href="https://gold.xitu.io/" target="_blank")
+          img(src="../marks/juejin.png")
 </template>
 <style lang="stylus">
 @keyframes fadeIn
