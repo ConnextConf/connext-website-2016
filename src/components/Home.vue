@@ -225,7 +225,7 @@ bg_canvas
     width 28vmin
     padding-bottom 1vmin
     margin auto
-    border-bottom 1px solid rgba(255, 255, 255, 0.35)
+    transform translateX(0.8vmin)
   .cooperation
     width 80%
     margin 3vh auto
