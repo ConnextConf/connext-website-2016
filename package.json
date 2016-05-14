@@ -56,10 +56,13 @@
     "imports-loader": "^0.6.5",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
+    "pug": "^2.0.0-alpha7",
     "sass-resources-loader": "^1.0.2",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.0.0",
+    "template-html-loader": "0.0.3",
+    "then-jade": "^2.4.1",
     "vue": "^1.0.21",
     "vue-resource": "^0.6.1",
     "vue-router": "^0.7.13"
