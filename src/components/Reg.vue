@@ -4,6 +4,12 @@
     name: "Reg",
     components: {
       under_cons
+    },
+    ready() {
+      $(".footer").css("display", "none")
+      $(window).unbind("mousewheel DOMMouseScroll")
+      $(window).unbind("touchmove")
+      $(window).unbind("touchstart")
     }
   }
 </script>

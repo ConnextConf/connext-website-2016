@@ -1,6 +1,14 @@
 <script>
   export default {
-    name: "About"
+    name: "About",
+    ready() {
+      $("body").css("overflow-y", "auto")
+      $("body").css("overflow-x", "hidden")
+      $(".footer").css("display", "block")
+      $(window).unbind("mousewheel DOMMouseScroll")
+      $(window).unbind("touchmove")
+      $(window).unbind("touchstart")
+    }
   }
 </script>
 <template>

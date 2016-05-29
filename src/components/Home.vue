@@ -15,7 +15,6 @@
   import bg_canvas from "./bg_canvas.vue"
   export default {
     name: "Home",
-    ready: pageReady,
     components: {
       bg_canvas
     },
@@ -23,6 +22,15 @@
       return {
         page: "Home"
       }
+    },
+    ready() {
+      pageReady()
+      $("body").css("overflow-y", "auto")
+      $("body").css("overflow-x", "hidden")
+      $(window).unbind("mousewheel DOMMouseScroll")
+      $(window).unbind("touchmove")
+      $(window).unbind("touchstart")
+      $(".footer").css("display", "block")
     }
   }
 </script>
@@ -136,6 +144,8 @@ bg_canvas
           img(src="../marks/juejin.png")
 </template>
 <style lang="stylus">
+body
+  overflow-x hidden
 @keyframes fadeIn
   0%
     opacity 0

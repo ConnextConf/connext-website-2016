@@ -3,7 +3,6 @@ window.jQuery = window.$ =  require('jquery');
 require("bootstrap-webpack")
 require("Font-Awesome-Stylus")
 require("csshake")
-
 //import stylus from './app.styl'
 
 import Vue from 'vue'

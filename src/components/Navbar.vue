@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a v-link="{name: 'home'}">会议概览</a></li>
-        <li><a v-link="{name: 'pres'}">演讲嘉宾</a></li>
+        <li><a v-link="{name: 'pres'}">分享嘉宾</a></li>
         <li><a v-link="{name: 'about'}">关于我们</a></li>
         <li><a v-link="{name: 'reg'}">讲者注册</a></li>
         <li style="display: none;"><a href="http://shenyang.connextconf.org/" target="_blank">@Shenyang</a></li>
