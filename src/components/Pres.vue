@@ -8,35 +8,44 @@
       }
     },
     ready() {
+      let getRandomColor = function() {
+        let h = Math.floor(Math.random()*(359-0+1)+0)
+        let color = "hsla(" + h + ",49%,70%,0.7)"
+        return color
+      }
+      $(".front").each(function(n, ele){
+        $(ele).css("background", getRandomColor())
+      })
       $(".footer").css("display", "none")
       $("body").css("overflow", "hidden")
-      $(".circle-container").width($(".circle").length * $(window).height() * 0.01 * 30)
+      $(".circle-container").width($(".circle").length * $(window).height() * 0.01 * 26)
       function horizontalWheel(eve, el) {
         el.scrollLeft += (eve.deltaX !== undefined) ? eve.deltaX :
                         (eve.detail !== undefined && eve.detail !== 0) ? eve.detail :
-                            -eve.wheelDelta;
+                            -eve.wheelDelta
         el.scrollLeft += (eve.deltaY !== undefined) ? eve.deltaY :
                         (eve.detail !== undefined && eve.detail !== 0) ? eve.detail :
-                            -eve.wheelDelta;
+                            -eve.wheelDelta
       }
-      $(window).bind("touchstart", touchStart);
-      var start = {x:0,y:0};
+      $(window).bind("touchstart", touchStart)
+      var start = {x:0,y:0}
       function touchStart(event) {
-        start.x = event.originalEvent.touches[0].pageX;
-        start.y = event.originalEvent.touches[0].pageY;
+        start.x = event.originalEvent.touches[0].pageX
+        start.y = event.originalEvent.touches[0].pageY
       }
-      var wx = document.querySelector('body');
+      var wx = document.querySelector('body')
       $(window).bind("mousewheel DOMMouseScroll", function(event){
-        event.preventDefault();
-        horizontalWheel(event.originalEvent, wx);
-        return false;})
+        event.preventDefault()
+        horizontalWheel(event.originalEvent, wx)
+        return false
+      })
       $(window).bind("touchmove", function(e){
         e.preventDefault();
-        var offset = {};
-        offset.deltaX = start.x - e.originalEvent.touches[0].pageX;
-        offset.deltaY = start.y - e.originalEvent.touches[0].pageY;
-        horizontalWheel(offset, wx);
-        return false;
+        var offset = {}
+        offset.deltaX = start.x - e.originalEvent.touches[0].pageX
+        offset.deltaY = start.y - e.originalEvent.touches[0].pageY
+        horizontalWheel(offset, wx)
+        return false
       })
     },
     resize() {
@@ -46,60 +55,127 @@
   }
 </script>
 <template lang="jade">
+.background
 .container.pres
   .title
     .context
       h1 分享嘉宾
-      p 这里是一串很长的文字
-    p.arrow.shake-slow.shake-horizontal-slow.shake-horizontal.shake-constant.shake-constant--hover
-      i(aria-hidden="true" class="fa fa-angle-double-right")
+      p 「行业嘉宾、同龄人和他们的澎湃之声」
+      p
+        a 按照您的使用习惯滑动页面
+
   .circle-container
+    .blur
     .circle
       .flipper
         .front
           .f
-            h1 Linghein Mattrick
-            p 吃喝嫖赌午餐券吃喝嫖赌午餐券吃喝嫖赌午餐券
+            h1 王鹏翰 / wph95
+            p
+              | CodeVS.cn
+              br
+              | 创始人
         .back
           .b
-            img.avatar(src="../avatars/linghein_ho.jpg")
-            p
-              a(href="#") 查看详情
+            img.avatar(src="../speakers/penghan_wang.jpg")
+
     .circle
       .flipper
         .front
           .f
-            h1 hello
-            p hahahahah
+            h1 高阳 / Sunny
+            p SegmentFault CEO
         .back
           .b
-            img.avatar(src="../avatars/linghein_ho.jpg")
-            p
-              a(href="#") 查看详情
+            img.avatar(src="../speakers/sunny_gao.png")
+
     .circle
       .flipper
         .front
           .f
-            h1 hello
-            p hahahahah
+            h1 赵坤安 / undownding
+            p Ezbuy.com Android 架构师
         .back
           .b
-            img.avatar(src="../avatars/linghein_ho.jpg")
-            p
-              a(href="#") 查看详情
+            img.avatar(src="../speakers/kunan_zhao.jpg")
+
     .circle
       .flipper
         .front
           .f
-            h1 hello
-            p hahahahah
+            h1 王天宇 / Cee Cirno
+            p iOS 开发者
         .back
           .b
-            img.avatar(src="../avatars/linghein_ho.jpg")
+            img.avatar(src="../speakers/cee_cirno.png")
+
+    .circle
+      .flipper
+        .front
+          .f
+            h1 朱锦涛 / Clerk Zhu
+            p CorpsX 联合创始人
+        .back
+          .b
+            img.avatar(src="../speakers/clerk_zhu.png")
+
+    .circle
+      .flipper
+        .front
+          .f
+            h1 刘恩泽 / Micromacer
+            p 青少年 UI 设计师
+        .back
+          .b
+            img.avatar(src="../speakers/penghan_wang.jpg")
+
+    .circle
+      .flipper
+        .front
+          .f
+            h1 王逸翛 / Tex Wang
             p
-              a(href="#") 查看详情
+              |风暴云文档创始人
+              br
+              |休学创业者
+        .back
+          .b
+            img.avatar(src="../speakers/tex_wang.png")
+
+    .circle
+      .flipper
+        .front
+          .f
+            h1 徐浩继 / Altoria
+            p 青少年个人开发者
+        .back
+          .b
+            img.avatar(src="../speakers/penghan_wang.jpg")
+
+    .circle
+      .flipper
+        .front
+          .f
+            h1 徐闻康 / Weny
+            p ForK12 教育基础接入平台开发者
+        .back
+          .b
+            img.avatar(src="../speakers/wk_x.jpg")
+
+    .circle
+      .flipper
+        .front
+          .f
+            h1 吴子谦
+            p 青少年创客
+        .back
+          .b
+            img.avatar(src="../speakers/ziqian_wu.jpg")
+
 </template>
-<style lang="stylus">
+<style lang="stylus" scoped>
+body
+
 .shake-slow.shake-horizontal
   animation-duration 10s !important
   animation-iteration-count infinite
@@ -110,19 +186,26 @@
   padding-top 50px
   height 100vh
   width 100vw
+  background-image url("../backgrounds/tianyu.jpg")
+  background-size cover
+  background-position 10% center
   .title
     width 80vw
     height 100%
-    position fixed
+    position absolute
     left 0
     top 0
-    background #546E7A
+    background rgba(0, 0, 0, 0.85)
     color white
     display flex
     align-items center
     align-content center
-    box-shadow 0 0 10px #404040 inset
-    padding-left 3vw
+    transition all .3s
+    &:hover
+      background rgba(0, 0, 0, 0.55)
+    .context
+      text-align center
+      width 100%
     h1
       font-size 4.6vh
       line-height 4.3vh
@@ -130,9 +213,23 @@
       font-weight 300
     p
       color #fff
-      line-height 2.2vh
+      line-height 3.2vh
       font-weight 300
+      width 80%
+      margin auto
       letter-spacing 0.2rem
+      &:nth-child(odd)
+        position absolute
+        bottom 15vh
+        left 0
+        width 100%
+      a
+        color white
+        border-radius 3px
+        border 1px solid white
+        padding .5rem 1.5rem
+        margin-top 1rem
+        font-size xx-small
     p.arrow
       position absolute
       top 50%
@@ -140,13 +237,27 @@
   .circle-container
     width 100%
     height 100%
-    background white
     left 80vw
     position absolute
     padding-left 10vw
     display flex
     align-items center
     top 0
+    background-image url("../backgrounds/1_a.jpg")
+    background-size cover
+    background-position 10% center
+    transition all .3s
+    &:hover
+      .blur
+        background rgba(0,0,0,.65)
+    .blur
+      position absolute
+      left 0
+      top 0
+      width 100%
+      height 100%
+      background rgba(0,0,0,.85)
+      transition all .3s
     .circle {
       perspective 1000
     }
@@ -177,6 +288,8 @@
       position absolute
       top 0
       left 0
+      background rgba(255,255,255,.6)
+      border-radius 100%
       h1
         font-size 2.6vh
         line-height 1vh
@@ -201,6 +314,8 @@
         width 25vh
         .avatar
           position absolute
+          width: 25vh;
+          height: 25vh;
         p
           position: relative;
           font-size: 3.4vh;
@@ -216,8 +331,7 @@
       width 25vh
       margin 0
       border-radius 100vmax
-      border 1px solid #00695C
-      color #00695C
+      color white
       img
         width 100%
         border-radius 100vh

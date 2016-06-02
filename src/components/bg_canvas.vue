@@ -259,6 +259,7 @@ window.onload = function() {
   }
 }
 #bg_canvas {
+  filter: blur(3px);
   opacity: .8;
   position: fixed;
   left: 0;

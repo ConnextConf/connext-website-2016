@@ -35,6 +35,7 @@
 </template>
 <style>
 nav {
+  width: 100vw;
   z-index: 1000 !important;
   opacity: 1
 }
