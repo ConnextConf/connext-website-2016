@@ -2,9 +2,8 @@
   export default {
     name: "Pres",
     methods: {
-      getRandomSquare() {
-        let a = Math.ceil(Math.random()*100)*3
-        return "width:"+a+"px;height:"+a+"px;"
+      scrollToContent() {
+       $('html,body').animate({scrollLeft:$('.title').width()}, 1000);
       }
     },
     ready() {
@@ -62,7 +61,7 @@
       h1 分享嘉宾
       p 「行业嘉宾、同龄人和他们的澎湃之声」
       p
-        a 按照您的使用习惯滑动页面
+        a(v-on:click="scrollToContent()") 请如往常一般滑动页面
 
   .circle-container
     .blur
@@ -127,7 +126,7 @@
             p 青少年 UI 设计师
         .back
           .b
-            img.avatar(src="../speakers/penghan_wang.jpg")
+            img.avatar(src="../speakers/enze_liu.jpg")
 
     .circle
       .flipper
@@ -243,7 +242,7 @@ body
     display flex
     align-items center
     top 0
-    background-image url("../backgrounds/1_a.jpg")
+    background-image url("../backgrounds/tianyux.jpg")
     background-size cover
     background-position 10% center
     transition all .3s

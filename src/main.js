@@ -49,7 +49,10 @@ router.map({
 
 // For every new route scroll to the top of the page
 router.beforeEach(function () {
-  window.scrollTo(0, 0)
+  $("html,body").animate({
+    scrollLeft: 0,
+    scrollTop: 0
+  },500)
 })
 
 // If no route is matched redirect home
