@@ -4,24 +4,18 @@
     methods: {
       scrollToContent() {
        $('html,body').animate({scrollLeft:$('.title').width()}, 1000);
-      }
-    },
-    ready() {
-      let getRandomColor = function() {
+      },
+      getRandomColor() {
         let h = Math.floor(Math.random()*(359-0+1)+0)
         let color = "hsla(" + h + ",49%,70%,0.7)"
         return color
       }
-      $(".front").each(function(n, ele){
-        $(ele).css("background", getRandomColor())
-      })
+    },
+    ready() {
       $(".footer").css("display", "none")
       $("body").css("overflow", "hidden")
       $(".circle-container").width($(".circle").length * $(window).height() * 0.01 * 26)
       function horizontalWheel(eve, el) {
-        el.scrollLeft += (eve.deltaX !== undefined) ? eve.deltaX :
-                        (eve.detail !== undefined && eve.detail !== 0) ? eve.detail :
-                            -eve.wheelDelta
         el.scrollLeft += (eve.deltaY !== undefined) ? eve.deltaY :
                         (eve.detail !== undefined && eve.detail !== 0) ? eve.detail :
                             -eve.wheelDelta
@@ -47,6 +41,62 @@
         return false
       })
     },
+    data() {
+      return {
+        "speakers": [
+          {
+          "name": "王鹏翰 / wph95",
+          "discription": "CodeVS.cn<br>创始人",
+          "image": require("../speakers/penghan_wang.jpg")
+          },
+          {
+          "name": "高阳 / Sunny",
+          "discription": "SegmentFault CEO",
+          "image": require("../speakers/sunny_gao.png")
+          },
+          {
+          "name": "赵坤安 / undownding",
+          "discription": "Ezbuy.com Android 架构师",
+          "image": require("../speakers/kunan_zhao.jpg")
+          },
+          {
+          "name": "王天宇 / Cee Cirno",
+          "discription": "iOS 开发者",
+          "image": require("../speakers/cee_cirno.png")
+          },
+          {
+          "name": "朱锦涛 / Clerk Zhu",
+          "discription": "CorpsX 联合创始人",
+          "image": require("../speakers/clerk_zhu.png")
+          },
+          {
+          "name": "刘恩泽 / Micromacer",
+          "discription": "青少年 UI 设计师",
+          "image": require("../speakers/enze_liu.jpg")
+          },
+          {
+          "name": "王逸翛 / Tex Wang",
+          "discription": "风暴云文档创始人<br>休学创业者",
+          "image": require("../speakers/tex_wang.png")
+          },
+          {
+          "name": "徐浩继 / Altoria",
+          "discription": "青少年个人开发者",
+          "image": require("../speakers/altoria.jpg")
+          },
+          {
+          "name": "徐闻康 / Weny",
+          "discription": "ForK12 教育基础接入平台开发者",
+          "image": require("../speakers/wk_x.jpg")
+          },
+          {
+          "name": "吴子谦",
+          "discription": "青少年创客",
+          "image": require("../speakers/ziqian_wu.jpg")
+          }
+        ]
+      }
+    },
     resize() {
       $(".circle-container").width($(".circle").length * $(window).height() * 0.01 * 26)
 
@@ -61,115 +111,19 @@
       h1 分享嘉宾
       p 「行业嘉宾、同龄人和他们的澎湃之声」
       p
-        a(v-on:click="scrollToContent()") 请如往常一般滑动页面
+        a(v-on:click="scrollToContent()") 请上下滑动页面
 
   .circle-container
     .blur
-    .circle
+    .circle(v-for="s in speakers")
       .flipper
-        .front
+        .front(:style="'background:' + getRandomColor()")
           .f
-            h1 王鹏翰 / wph95
-            p
-              | CodeVS.cn
-              br
-              | 创始人
+            h1 {{ s.name }}
+            p {{{ s.discription }}}
         .back
           .b
-            img.avatar(src="../speakers/penghan_wang.jpg")
-
-    .circle
-      .flipper
-        .front
-          .f
-            h1 高阳 / Sunny
-            p SegmentFault CEO
-        .back
-          .b
-            img.avatar(src="../speakers/sunny_gao.png")
-
-    .circle
-      .flipper
-        .front
-          .f
-            h1 赵坤安 / undownding
-            p Ezbuy.com Android 架构师
-        .back
-          .b
-            img.avatar(src="../speakers/kunan_zhao.jpg")
-
-    .circle
-      .flipper
-        .front
-          .f
-            h1 王天宇 / Cee Cirno
-            p iOS 开发者
-        .back
-          .b
-            img.avatar(src="../speakers/cee_cirno.png")
-
-    .circle
-      .flipper
-        .front
-          .f
-            h1 朱锦涛 / Clerk Zhu
-            p CorpsX 联合创始人
-        .back
-          .b
-            img.avatar(src="../speakers/clerk_zhu.png")
-
-    .circle
-      .flipper
-        .front
-          .f
-            h1 刘恩泽 / Micromacer
-            p 青少年 UI 设计师
-        .back
-          .b
-            img.avatar(src="../speakers/enze_liu.jpg")
-
-    .circle
-      .flipper
-        .front
-          .f
-            h1 王逸翛 / Tex Wang
-            p
-              |风暴云文档创始人
-              br
-              |休学创业者
-        .back
-          .b
-            img.avatar(src="../speakers/tex_wang.png")
-
-    .circle
-      .flipper
-        .front
-          .f
-            h1 徐浩继 / Altoria
-            p 青少年个人开发者
-        .back
-          .b
-            img.avatar(src="../speakers/penghan_wang.jpg")
-
-    .circle
-      .flipper
-        .front
-          .f
-            h1 徐闻康 / Weny
-            p ForK12 教育基础接入平台开发者
-        .back
-          .b
-            img.avatar(src="../speakers/wk_x.jpg")
-
-    .circle
-      .flipper
-        .front
-          .f
-            h1 吴子谦
-            p 青少年创客
-        .back
-          .b
-            img.avatar(src="../speakers/ziqian_wu.jpg")
+            img.avatar(:src="s.image")
 
 </template>
 <style lang="stylus" scoped>
