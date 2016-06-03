@@ -57,7 +57,7 @@
           {
           "name": "阴明 / kalasoo",
           "discription": "稀土 CXO<br>前端工程师",
-          "image": require("../speakers/ming_yin.png")
+          "image": require("../speakers/ming_yin.jpg")
           },
           {
           "name": "赵坤安 / undownding",
