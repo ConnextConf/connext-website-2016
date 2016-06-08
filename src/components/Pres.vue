@@ -31,6 +31,7 @@
     },
     data() {
       return {
+        "scrolly": !navigator.userAgent.match("Mobile") ? "向下滚动鼠标滚轮" : "向右滑动",
         "speakers": [
           {
           "name": "王鹏翰 / wph95",
@@ -109,7 +110,7 @@
       h1 分享嘉宾
       p 「行业嘉宾、同龄人和他们的澎湃之声」
       p
-        a(v-on:click="scrollToContent()") 请上下滑动页面
+        a(v-on:click="scrollToContent()") {{ scrolly }}
 
   .circle-container
     .blur
