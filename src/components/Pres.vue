@@ -13,33 +13,21 @@
     },
     ready() {
       $(".footer").css("display", "none")
-      $("body").css("overflow", "hidden")
+      $("body").css("overflow", "scroll")
       $(".circle-container").width($(".circle").length * $(window).height() * 0.01 * 26)
       function horizontalWheel(eve, el) {
         el.scrollLeft += (eve.deltaY !== undefined) ? eve.deltaY :
                         (eve.detail !== undefined && eve.detail !== 0) ? eve.detail :
                             -eve.wheelDelta
       }
-      $(window).bind("touchstart", touchStart)
-      var start = {x:0,y:0}
-      function touchStart(event) {
-        start.x = event.originalEvent.touches[0].pageX
-        start.y = event.originalEvent.touches[0].pageY
-      }
+    if(!navigator.userAgent.match("Mobile")){
       var wx = document.querySelector('body')
       $(window).bind("mousewheel DOMMouseScroll", function(event){
         event.preventDefault()
         horizontalWheel(event.originalEvent, wx)
         return false
       })
-      $(window).bind("touchmove", function(e){
-        e.preventDefault();
-        var offset = {}
-        offset.deltaX = start.x - e.originalEvent.touches[0].pageX
-        offset.deltaY = start.y - e.originalEvent.touches[0].pageY
-        horizontalWheel(offset, wx)
-        return false
-      })
+    }
     },
     data() {
       return {
@@ -50,12 +38,17 @@
           "image": require("../speakers/penghan_wang.jpg")
           },
           {
-          "name": "高阳 / Sunny",
+          "name": "高阳",
           "discription": "SegmentFault CEO",
           "image": require("../speakers/sunny_gao.png")
           },
           {
-          "name": "阴明 / kalasoo",
+          "name": "王子亭 / jysperm",
+          "discription": "LeanCloud 服务器端工程师",
+          "image": require("../speakers/jy.png")
+          },
+          {
+          "name": "阴明",
           "discription": "稀土 CXO<br>前端工程师",
           "image": require("../speakers/ming_yin.jpg")
           },
@@ -70,27 +63,27 @@
           "image": require("../speakers/cee_cirno.png")
           },
           {
-          "name": "朱锦涛 / Clerk Zhu",
+          "name": "朱锦涛 / clerkzhu",
           "discription": "CorpsX 联合创始人",
           "image": require("../speakers/clerk_zhu.png")
           },
           {
-          "name": "刘恩泽 / Micromacer",
-          "discription": "青少年 UI 设计师",
+          "name": "刘恩泽 / Kenny",
+          "discription": "设计爱好者",
           "image": require("../speakers/enze_liu.jpg")
           },
           {
-          "name": "王逸翛 / Tex Wang",
+          "name": "王逸翛",
           "discription": "风暴云文档创始人<br>休学创业者",
           "image": require("../speakers/tex_wang.png")
           },
           {
-          "name": "徐浩继 / Altoria",
+          "name": "徐浩继 / altoria",
           "discription": "青少年个人开发者",
           "image": require("../speakers/altoria.jpg")
           },
           {
-          "name": "徐闻康 / Weny",
+          "name": "徐闻康",
           "discription": "ForK12 教育基础接入平台开发者",
           "image": require("../speakers/wk_x.jpg")
           },
@@ -109,9 +102,9 @@
   }
 </script>
 <template lang="jade">
-.background
 .container.pres
   .title
+    .blur
     .context
       h1 分享嘉宾
       p 「行业嘉宾、同龄人和他们的澎湃之声」
@@ -144,26 +137,36 @@ body
   padding-top 50px
   height 100vh
   width 100vw
-  background-image url("../backgrounds/tianyu.jpg")
-  background-size cover
-  background-position 10% center
+
   .title
-    width 80vw
+    width 100vw
     height 100%
     position absolute
     left 0
     top 0
-    background rgba(0, 0, 0, 0.85)
+    background-image url("../backgrounds/tianyu.jpg")
+    background-size cover
+    background-position 10% center
     color white
     display flex
     align-items center
     align-content center
     transition all .3s
     &:hover
-      background rgba(0, 0, 0, 0.55)
+      .blur
+        background rgba(0,0,0,.65)
+    .blur
+      position absolute
+      left 0
+      top 0
+      width 100%
+      height 100%
+      background rgba(0,0,0,.85)
+      transition all .3s
     .context
       text-align center
       width 100%
+      position relative
     h1
       font-size 4.6vh
       line-height 4.3vh
@@ -178,7 +181,7 @@ body
       letter-spacing 0.2rem
       &:nth-child(odd)
         position absolute
-        bottom 15vh
+        top 45vh
         left 0
         width 100%
       a
@@ -195,7 +198,7 @@ body
   .circle-container
     width 100%
     height 100%
-    left 80vw
+    left 100vw
     position absolute
     padding-left 10vw
     display flex
